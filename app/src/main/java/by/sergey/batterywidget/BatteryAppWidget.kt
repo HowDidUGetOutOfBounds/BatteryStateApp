@@ -27,6 +27,7 @@ import android.content.Intent
 import by.sergey.batterywidget.utills.Constants.INFO_TAG
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
+import by.sergey.batterywidget.UI.MainActivity
 import java.util.*
 
 
@@ -130,6 +131,8 @@ class BatteryAppWidget : AppWidgetProvider() {
                 views.setImageViewResource(R.id.batteryBacks, R.drawable.battery_state_90_100)
         }
 
+        val openAppIntent = Intent(context.applicationContext, MainActivity::class.java)
+        views.setOnClickPendingIntent(R.id.batteryMask,PendingIntent.getActivity(context, 0, openAppIntent, 0))
 
         val componentName = ComponentName(context, BatteryAppWidget::class.java)
         val appWidgetManager = AppWidgetManager.getInstance(context)

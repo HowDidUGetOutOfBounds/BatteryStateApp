@@ -22,17 +22,18 @@
         android:id="@+id/batteryLevel"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="25dp"
         app:cpb_background_progressbar_color="@color/light_gray"
+        app:cpb_background_progressbar_width="10dp"
+        app:cpb_progress="40"
         app:cpb_progress_direction="to_right"
+        app:cpb_progress_max="100"
         app:cpb_progressbar_color="@color/battery_light_green"
         app:cpb_progressbar_width="10dp"
-        app:cpb_progress="40"
-        app:cpb_progress_max="100"
-        app:cpb_background_progressbar_width="10dp"
-        android:layout_marginTop="85dp"/>
+        app:layout_constraintBottom_toTopOf="@+id/ChargingStatusLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewBatteryLevel"
