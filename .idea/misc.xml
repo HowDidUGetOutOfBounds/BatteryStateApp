@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable-v21/app_widget_background.xml" value="0.34479166666666666" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable-v21/app_widget_inner_view_background.xml" value="0.3828125" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable-v21/battery_state_10_20.xml" value="0.24322916666666666" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable-v21/battery_state_20_30.xml" value="0.24322916666666666" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable-v21/battery_state_60_70.xml" value="0.24322916666666666" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3828125" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable/battery_state_0_10.xml" value="0.24322916666666666" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable/battery_state_100.xml" value="0.24322916666666666" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable/battery_state_10_20.xml" value="0.24322916666666666" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable/battery_state_20_30.xml" value="0.24322916666666666" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable/battery_state_30_40.xml" value="0.24322916666666666" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable/battery_state_40_50.xml" value="0.3828125" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable/battery_state_50_60.xml" value="0.24322916666666666" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable/battery_state_60_70.xml" value="0.24322916666666666" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable/battery_state_70_80.xml" value="0.24322916666666666" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable/battery_state_80_90.xml" value="0.24322916666666666" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable/battery_state_90_100.xml" value="0.24322916666666666" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable/ic_baseline_battery_charging_full_24.xml" value="0.287109375" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable/ic_baseline_bolt_24.xml" value="0.3828125" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable/ic_baseline_local_fire_department_24.xml" value="0.3828125" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable/ic_baseline_local_hospital_24.xml" value="0.3828125" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable/ic_launcher_background.xml" value="0.24322916666666666" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable/myapp_launcher_foreground.xml" value="0.3828125" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/drawable/myshape.xml" value="0.34479166666666666" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/layout/battery_app_widget.xml" value="0.33" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/layout/fragment_main_screen.xml" value="0.33" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/layout/fragment_settings.xml" value="0.25" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/layout/widget_battery.xml" value="0.20520833333333333" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/mipmap-anydpi-v26/myapp_launcher.xml" value="0.3828125" />
+        <entry key="..\:/BatteryWidget/app/src/main/res/mipmap-anydpi-v26/myapp_launcher_round.xml" value="0.3828125" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

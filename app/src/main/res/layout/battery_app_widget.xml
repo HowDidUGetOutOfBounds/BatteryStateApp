@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.BatteryWidget.AppWidget.Container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/myshape"
+    android:theme="@style/Theme.BatteryWidget.AppWidgetContainer">
+
+    <TextView
+        android:id="@+id/appwidget_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/batteryMask"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:paddingStart="8dp"
+        android:text="Battery: "
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/appwidget_text_percentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_toEndOf="@id/appwidget_text"
+        android:text="100"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+
+    <ImageView
+        android:id="@+id/batteryBacks"
+        android:layout_width="130dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/appwidget_text"
+        android:layout_alignStart="@id/batteryMask"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="23dp"
+        android:src="@drawable/battery_state_90_100"
+        android:scaleType="fitStart"
+        android:minWidth="200dp"
+        android:minHeight="100dp" />
+
+    <ImageView
+        android:id="@+id/batteryMask"
+        android:layout_width="180dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/appwidget_text"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:minWidth="200dp"
+        android:minHeight="100dp"
+        android:layout_centerHorizontal="true"
+        android:rotation="90"
+        android:scaleX="2.5"
+        android:scaleY="2.5"
+        android:src="@drawable/battery" />
+
+
+</RelativeLayout>

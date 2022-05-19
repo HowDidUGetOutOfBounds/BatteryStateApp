@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Battery Widget</string>
+    <string name="appwidget_text">Пример</string>
+    <string name="add_widget">Добавить виджет</string>
+    <string name="app_widget_description">Это описание виджета</string>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#e1d8de</color>
+    <color name="purple_500">#b7c2d4</color>
+    <color name="purple_700">#686a77</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_blue_50">#FFE1F5FE</color>
+    <color name="light_blue_200">#FF81D4FA</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="battery_light_green">#00FF0D</color>
+    <color name="widgetBackground">#80FFFFFF</color>
+    <color name="almost_black">#120d14</color>
+    <color name="gray">#2e2e39</color>
+    <color name="light_gray">#686a77</color>
+    <color name="dark_blue">#cfd5de</color>
+    <color name="dark_pink">#e1d8de</color>
+    <color name="light_gray_with_blue">#b7c2d4</color>
+    <color name="appBars">#788997</color>
+</resources>

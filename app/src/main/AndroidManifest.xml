@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="by.sergey.batterywidget">
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/myapp_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/myapp_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BatteryWidget">
+        <receiver
+            android:name=".BatteryAppWidget"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="by.sergey.batterywidget.action.UPDATE"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/battery_app_widget_info" />
+        </receiver>
+        
+
+
+        <activity
+            android:name=".UI.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".ScreenMonitorService"/>
+    </application>
+
+</manifest>
