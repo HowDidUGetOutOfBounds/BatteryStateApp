@@ -23,10 +23,18 @@ import android.widget.ImageView
 
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
+import android.content.Intent
+import by.sergey.batterywidget.utills.Constants.INFO_TAG
+import androidx.work.OneTimeWorkRequest
+import androidx.work.WorkManager
+import java.util.*
 
 
 /**
  * Implementation of App Widget functionality.
+ * I don't think that UI element, which is inherited from Broadcast receiver is UI layer,
+ * so MVVM is not applied here. Widgets were reworked on API 31, but by now, most devices doesn't support that API
+ * Here is just nice sample to see how to organize background tasks without running app to do some work
  */
 class BatteryAppWidget : AppWidgetProvider() {
 
@@ -49,16 +57,28 @@ class BatteryAppWidget : AppWidgetProvider() {
 
         turnAlarmOnOff(context, true)
 
-        val serviceIntent = Intent(context, ScreenMonitorService::class.java)
-        context.startService(serviceIntent)
+        // due to service limitations after Android 8
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Log.d(INFO_TAG, "Launching ScreenMonitorService for 8 Android and above")
+            val myWorkRequest = OneTimeWorkRequest.Builder(ScreenMonitorWorker::class.java).build()
+            WorkManager.getInstance(context).enqueue(myWorkRequest)
+        } else {
+            Log.d(INFO_TAG, "Launching ScreenMonitorService for pre 8 Android")
+            val serviceIntent = Intent(context, ScreenMonitorService::class.java)
+            context.startService(serviceIntent)
+        }
+
     }
 
     override fun onDisabled(context: Context) {
         super.onDisabled(context)
-
-
         turnAlarmOnOff(context, false)
-        context.stopService(Intent(context, ScreenMonitorService::class.java))
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            ScreenMonitorWorker.unregisterReceivers(context.applicationContext)
+        } else {
+            context.stopService(Intent(context, ScreenMonitorService::class.java))
+        }
     }
 
     override fun onReceive(context: Context?, intent: Intent?) {
@@ -121,8 +141,7 @@ class BatteryAppWidget : AppWidgetProvider() {
         private var batteryLevel = 0
 
         fun turnAlarmOnOff(context: Context, turnOn: Boolean) {
-
-
+            Log.d(INFO_TAG, "turnAlarmOnOff was called with $turnOn flag")
 
             val intent = Intent(context, BatteryAppWidget::class.java)
             intent.setAction(ACTION_BATTERY_UPDATE)

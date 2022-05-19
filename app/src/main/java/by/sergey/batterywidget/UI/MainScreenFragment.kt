@@ -36,15 +36,15 @@ class MainScreenFragment : Fragment() {
         mainActivityViewModel.batteryIntentLiveData.observe(this) { data ->
             with(binding)
             {
-                textViewBatteryLevel.text =
-                    data.getIntExtra(BatteryManager.EXTRA_LEVEL, 0).toString() + "%"
+                textViewBatteryLevel.text = data.getIntExtra(BatteryManager.EXTRA_LEVEL, 0).toString() + "%"
                 batteryLevel.progress = data.getIntExtra(BatteryManager.EXTRA_LEVEL, 0).toFloat()
 
                 textViewVoltageData.text = data.getIntExtra(BatteryManager.EXTRA_VOLTAGE, 0).toString() + " mV"
                 textViewHealthData.text = mainActivityViewModel.getHealthFormIntent(data)
                 textViewBatteryTypeData.text = data.getStringExtra(BatteryManager.EXTRA_TECHNOLOGY)
                 textViewTemperatureData.text = mainActivityViewModel.getTemperatureFormIntent(data).toString() + "°C"
-                textViewChargingStatusData.text = mainActivityViewModel.getChargingStatusFromIntent(data)
+                textViewChargingStatusData.text =
+                    mainActivityViewModel.getChargingStatusFromIntent(data)
             }
         }
     }
