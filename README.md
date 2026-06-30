@@ -6,7 +6,9 @@ An Android app that displays real-time battery information — voltage, temperat
 
 | App | Widget |
 |-----|--------|
-| ![App screenshot](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs37q9cCgGPdepqziy_B7fyb9EFkPIkP90A9c0vrENWvqGnx4uROA92t_3&s=10) | ![Widget screenshot](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs37q9cCgGPdepqziy_B7fyb9EFkPIkP90A9c0vrENWvqGnx4uROA92t_3&s=10) |
+| ![App screenshot](<img width="525" height="1104" alt="image" src="https://github.com/user-attachments/assets/ec8c047b-181d-47f4-9a05-7ea4afd1a036" />
+) | ![Widget screenshot](<img width="353" height="267" alt="image" src="https://github.com/user-attachments/assets/447aeed3-1671-4e61-8503-4c3853b7d7ea" />
+) |
 
 ## Features
 
