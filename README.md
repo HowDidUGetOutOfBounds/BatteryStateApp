@@ -3,10 +3,7 @@
 An Android app that displays real-time battery information — voltage, temperature, health, charge level, and technology type — both in-app and via a homescreen widget.
 
 ## Screenshots
-
-| App | Widget |
-|-----|--------|
-| ![App screenshot](https://github.com/user-attachments/assets/ec8c047b-181d-47f4-9a05-7ea4afd1a036) | ![Widget screenshot](https://github.com/user-attachments/assets/447aeed3-1671-4e61-8503-4c3853b7d7ea) |
+ ![App screenshot](https://github.com/user-attachments/assets/ec8c047b-181d-47f4-9a05-7ea4afd1a036)  ![Widget screenshot](https://github.com/user-attachments/assets/447aeed3-1671-4e61-8503-4c3853b7d7ea) 
 
 ## Features
 
