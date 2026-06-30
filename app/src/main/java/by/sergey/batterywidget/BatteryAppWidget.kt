@@ -13,7 +13,7 @@ import android.content.*
 import by.sergey.batterywidget.utills.Constants.INFO_TAG
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
-import by.sergey.batterywidget.UI.MainActivity
+import by.sergey.batterywidget.presentation.MainActivity
 
 class BatteryAppWidget : AppWidgetProvider() {
 
