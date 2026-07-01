@@ -5,15 +5,13 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BatteryChargingFull
 import androidx.compose.material.icons.automirrored.filled.BatteryUnknown
@@ -56,7 +54,7 @@ import androidx.compose.ui.unit.dp
 
 import by.sergey.batterywidget.presentation.theme.BatteryFullGreen
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun MainScreen(
     state: BatteryState,
@@ -86,42 +84,55 @@ fun MainScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(padding)
-                .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Spacer(Modifier.height(24.dp))
+            Box(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ) {
+                BatteryGauge(level = state.level, color = state.levelColor)
+            }
 
-            BatteryGauge(level = state.level, color = state.levelColor)
-
-            Spacer(Modifier.height(32.dp))
-
-            BatteryInfoCard(
-                icon = Icons.Default.Bolt,
-                label = "Voltage",
-                value = state.voltage
-            )
-            BatteryInfoCard(
-                icon = Icons.AutoMirrored.Filled.BatteryUnknown,
-                label = "Battery type",
-                value = state.technology
-            )
-            BatteryInfoCard(
-                icon = Icons.Default.LocalHospital,
-                label = "Battery health",
-                value = state.health
-            )
-            BatteryInfoCard(
-                icon = Icons.Default.LocalFireDepartment,
-                label = "Temperature",
-                value = state.temperature
-            )
-            BatteryInfoCard(
-                icon = Icons.Default.BatteryChargingFull,
-                label = "Charging status",
-                value = state.chargingStatus
-            )
-
-            Spacer(Modifier.height(16.dp))
+            FlowRow(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp, vertical = 8.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+                maxItemsInEachRow = 2
+            ) {
+                BatteryInfoCard(
+                    icon = Icons.Default.Bolt,
+                    label = "Voltage",
+                    value = state.voltage,
+                    modifier = Modifier.weight(1f)
+                )
+                BatteryInfoCard(
+                    icon = Icons.AutoMirrored.Filled.BatteryUnknown,
+                    label = "Battery type",
+                    value = state.technology,
+                    modifier = Modifier.weight(1f)
+                )
+                BatteryInfoCard(
+                    icon = Icons.Default.LocalHospital,
+                    label = "Battery health",
+                    value = state.health,
+                    modifier = Modifier.weight(1f)
+                )
+                BatteryInfoCard(
+                    icon = Icons.Default.LocalFireDepartment,
+                    label = "Temperature",
+                    value = state.temperature,
+                    modifier = Modifier.weight(1f)
+                )
+                BatteryInfoCard(
+                    icon = Icons.Default.BatteryChargingFull,
+                    label = "Charging status",
+                    value = state.chargingStatus,
+                    modifier = Modifier.weight(1f)
+                )
+            }
         }
     }
 }
@@ -271,40 +282,36 @@ fun BatteryInfoCard(
     modifier: Modifier = Modifier
 ) {
     Card(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 4.dp),
+        modifier = modifier,
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surfaceVariant
         ),
         elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
     ) {
-        Row(
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 24.dp, vertical = 14.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
+                .padding(12.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
         ) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(
-                    imageVector = icon,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.size(24.dp)
-                )
-                Spacer(Modifier.size(12.dp))
-                Text(
-                    text = label,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
+            Icon(
+                imageVector = icon,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.size(24.dp)
+            )
+            Spacer(Modifier.size(4.dp))
             Text(
                 text = value,
-                style = MaterialTheme.typography.titleMedium,
+                style = MaterialTheme.typography.titleSmall,
                 color = MaterialTheme.colorScheme.onSurface,
                 fontWeight = FontWeight.SemiBold
+            )
+            Text(
+                text = label,
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
     }

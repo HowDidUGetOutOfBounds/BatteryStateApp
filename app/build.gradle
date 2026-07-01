@@ -68,9 +68,6 @@ dependencies {
     // Material Components (kept for widget theme references)
     implementation libs.material
 
-    // WorkManager (kept for widget background work)
-    implementation libs.work.runtime.ktx
-
     // AppCompat (kept for widget RemoteViews)
     implementation libs.appcompat
 
