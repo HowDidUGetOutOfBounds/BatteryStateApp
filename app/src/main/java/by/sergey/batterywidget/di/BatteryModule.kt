@@ -4,8 +4,11 @@ import android.app.Application
 import android.content.Context
 import by.sergey.batterywidget.data.BatteryRepositoryImpl
 import by.sergey.batterywidget.data.BatteryStatusDataSource
+import by.sergey.batterywidget.domain.Logger
 import by.sergey.batterywidget.domain.repository.BatteryRepository
 import by.sergey.batterywidget.domain.usecase.ObserveBatteryUseCase
+import by.sergey.batterywidget.utills.FileLogger
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,24 +18,30 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object BatteryModule {
+abstract class BatteryModule {
 
-    @Provides
+    @Binds
     @Singleton
-    fun provideBatteryStatusDataSource(
-        @ApplicationContext context: Context
-    ): BatteryStatusDataSource = BatteryStatusDataSource(context)
+    abstract fun bindLogger(fileLogger: FileLogger): Logger
 
-    @Provides
-    @Singleton
-    fun provideBatteryRepository(
-        dataSource: BatteryStatusDataSource,
-        app: Application
-    ): BatteryRepository = BatteryRepositoryImpl(dataSource, app)
+    companion object {
+        @Provides
+        @Singleton
+        fun provideBatteryStatusDataSource(
+            @ApplicationContext context: Context
+        ): BatteryStatusDataSource = BatteryStatusDataSource(context)
 
-    @Provides
-    @Singleton
-    fun provideObserveBatteryUseCase(
-        repository: BatteryRepository
-    ): ObserveBatteryUseCase = ObserveBatteryUseCase(repository)
+        @Provides
+        @Singleton
+        fun provideBatteryRepository(
+            dataSource: BatteryStatusDataSource,
+            app: Application
+        ): BatteryRepository = BatteryRepositoryImpl(dataSource, app)
+
+        @Provides
+        @Singleton
+        fun provideObserveBatteryUseCase(
+            repository: BatteryRepository
+        ): ObserveBatteryUseCase = ObserveBatteryUseCase(repository)
+    }
 }
